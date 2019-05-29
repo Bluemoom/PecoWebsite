@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecoWeb.Common", "PecoWeb.Common\PecoWeb.Common.csproj", "{3A62D136-A1B5-4F76-9418-749EC3C48F84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecoWeb.Data", "PecoWeb.Data\PecoWeb.Data.csproj", "{98E10D00-4255-4FBC-A1EE-A1EA8832AFA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecoWeb.Model", "PecoWeb.Model\PecoWeb.Model.csproj", "{00E02CD3-2F94-47AD-BCF3-F4DF65A111D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecoWeb.Service", "PecoWeb.Service\PecoWeb.Service.csproj", "{C64AA26D-A185-49A8-90FE-0DE422756BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecoWeb.UnitTest", "PecoWeb.UnitTest\PecoWeb.UnitTest.csproj", "{88802728-7551-49CB-8D8A-67B08592E81F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecoWeb.Web", "PecoWeb.Web\PecoWeb.Web.csproj", "{1FD0891B-99A1-4B82-A3F1-EC53C62EB12B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A62D136-A1B5-4F76-9418-749EC3C48F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A62D136-A1B5-4F76-9418-749EC3C48F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A62D136-A1B5-4F76-9418-749EC3C48F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A62D136-A1B5-4F76-9418-749EC3C48F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98E10D00-4255-4FBC-A1EE-A1EA8832AFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98E10D00-4255-4FBC-A1EE-A1EA8832AFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98E10D00-4255-4FBC-A1EE-A1EA8832AFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98E10D00-4255-4FBC-A1EE-A1EA8832AFA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00E02CD3-2F94-47AD-BCF3-F4DF65A111D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00E02CD3-2F94-47AD-BCF3-F4DF65A111D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00E02CD3-2F94-47AD-BCF3-F4DF65A111D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00E02CD3-2F94-47AD-BCF3-F4DF65A111D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C64AA26D-A185-49A8-90FE-0DE422756BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64AA26D-A185-49A8-90FE-0DE422756BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64AA26D-A185-49A8-90FE-0DE422756BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64AA26D-A185-49A8-90FE-0DE422756BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88802728-7551-49CB-8D8A-67B08592E81F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88802728-7551-49CB-8D8A-67B08592E81F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88802728-7551-49CB-8D8A-67B08592E81F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88802728-7551-49CB-8D8A-67B08592E81F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD0891B-99A1-4B82-A3F1-EC53C62EB12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD0891B-99A1-4B82-A3F1-EC53C62EB12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD0891B-99A1-4B82-A3F1-EC53C62EB12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD0891B-99A1-4B82-A3F1-EC53C62EB12B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
