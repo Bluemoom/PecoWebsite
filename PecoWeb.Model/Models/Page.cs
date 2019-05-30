@@ -5,27 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using PecoWeb.Model.Abstract;
 
 namespace PecoWeb.Model.Models
 {
-    [Table("Menus")]
-    public class Menu
+    [Table("Pages")]
+    public class Page: Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(256)]
         public string Name { get; set; }
         [Required]
+        [Column(TypeName ="varchar")]
         [MaxLength(256)]
-        public string URL { get; set; }
-        public int? DisplayOrder { get; set; }
-        [ForeignKey("GroupID")]
-        public int GroupID { get; set; }
-        public virtual MenuGroup MenuGroup  { get; set; }
-        [MaxLength(10)]
-        public string Target { get; set; }
-        public bool Status { get; set; }
+        public string Alias { get; set; }
+        public string Content { get; set; }
     }
 }

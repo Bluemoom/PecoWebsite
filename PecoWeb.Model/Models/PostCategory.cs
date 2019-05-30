@@ -5,27 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using PecoWeb.Model.Abstract;
 
 namespace PecoWeb.Model.Models
 {
-    [Table("Menus")]
-    public class Menu
+    [Table("PostCategories")]
+    public class PostCategory : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(256)]
         public string Name { get; set; }
         [Required]
+        [Column(TypeName = "varchar")]
         [MaxLength(256)]
-        public string URL { get; set; }
+        public string Alias { get; set; }
+        [MaxLength(500)]
+        public string Description { get; set; }
+        public int? ParentID { get; set; }
         public int? DisplayOrder { get; set; }
-        [ForeignKey("GroupID")]
-        public int GroupID { get; set; }
-        public virtual MenuGroup MenuGroup  { get; set; }
-        [MaxLength(10)]
-        public string Target { get; set; }
-        public bool Status { get; set; }
+        [MaxLength(256)]
+        public string Image { get; set; }
+        public bool? HomaFlag { get; set; }
+        public virtual IEnumerable<Post> Posts { get; set; }
     }
 }
