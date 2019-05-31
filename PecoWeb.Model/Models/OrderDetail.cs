@@ -13,9 +13,12 @@ namespace PecoWeb.Model.Models
         [Key]
         [Column(Order = 2)]
         public int ProductID { get; set; }
+
         public int Quantity { get; set; }
+
         [ForeignKey("OrderID")]
         public virtual Order Order { get; set; }
+
         [ForeignKey("ProductID")]
         public virtual Product Product { get; set; }
     }

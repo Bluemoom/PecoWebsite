@@ -66,11 +66,6 @@ namespace PecoWeb.Data.Infrastructure
             return dbSet.Find(id);
         }
 
-        //public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes)
-        //{
-        //    return dbSet.Where(where).ToList();
-        //}
-
 
         public virtual int Count(Expression<Func<T, bool>> where)
         {

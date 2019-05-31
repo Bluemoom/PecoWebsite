@@ -8,11 +8,14 @@ namespace PecoWeb.Model.Models
     {
         [Key]
         public int ID { get; set; }
+
         [Required]
         [Column(TypeName="varchar")]
         public string Code { get; set; }
+
         [MaxLength(50)]
         public string ValueString { get; set; }
+
         public int? ValueInt { get; set; }
     }
 }

@@ -9,13 +9,14 @@ namespace PecoWeb.Model.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
 
         [MaxLength(50)]
         public string Department { get; set; }
-
+        
         [MaxLength(50)]
         public string Skype { get; set; }
 
@@ -33,6 +34,7 @@ namespace PecoWeb.Model.Models
 
         [MaxLength(50)]
         public string Status { get; set; }
+
         public int? DisplayOrder { get; set; }
     }
 }

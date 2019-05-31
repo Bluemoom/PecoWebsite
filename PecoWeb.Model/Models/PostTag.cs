@@ -9,12 +9,15 @@ namespace PecoWeb.Model.Models
         [Key]
         [Column(Order = 1)]
         public int PostID { get; set; }
+
         [Key]
         [Column(TypeName ="varchar", Order =2)]
         [MaxLength(50)]
         public string TagID { get; set; }
+
         [ForeignKey("PostID")]
         public virtual Post Post { get; set; }
+
         [ForeignKey("TagID")]
         public virtual Tag Tag { get; set; }
     }

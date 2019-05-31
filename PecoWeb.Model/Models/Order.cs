@@ -11,9 +11,11 @@ namespace PecoWeb.Model.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
+
         [Required]
         [MaxLength(256)]
         public string CustomerName { get; set; }
+
         [Required]
         [MaxLength(256)]
         public string CustomerAddress { get; set; }
@@ -35,9 +37,13 @@ namespace PecoWeb.Model.Models
         public string PaymentMethod { get; set; }
 
         public DateTime? CreatedDate { get; set; }
+
         public string CreatedBy { get; set; }
+
         public string PaymentStatus { get; set; }
+
         public bool Status { get; set; }
+
         public virtual IEnumerable<OrderDetail>  OrderDetails { get; set; }
     }
 }
