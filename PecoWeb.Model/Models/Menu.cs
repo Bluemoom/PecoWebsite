@@ -21,8 +21,9 @@ namespace PecoWeb.Model.Models
         [MaxLength(256)]
         public string URL { get; set; }
         public int? DisplayOrder { get; set; }
-        [ForeignKey("GroupID")]
+        
         public int GroupID { get; set; }
+        [ForeignKey("GroupID")]
         public virtual MenuGroup MenuGroup  { get; set; }
         [MaxLength(10)]
         public string Target { get; set; }
