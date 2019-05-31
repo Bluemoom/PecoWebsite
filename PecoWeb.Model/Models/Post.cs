@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using PecoWeb.Model.Abstract;
+using System.Collections.Generic;
 
 namespace PecoWeb.Model.Models
 {
@@ -29,5 +30,7 @@ namespace PecoWeb.Model.Models
         public int? ViewCount { get; set; }
         [ForeignKey("CategoryID")]
         public virtual PostCategory  PostCategory{ get; set; }
+        [ForeignKey("CategoryID")]
+        public virtual IEnumerable<PostTag> PostTags { get; set; }
     }
 }

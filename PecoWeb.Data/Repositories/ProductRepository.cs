@@ -8,7 +8,7 @@ using PecoWeb.Model.Models;
 
 namespace PecoWeb.Data.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
 
     }
