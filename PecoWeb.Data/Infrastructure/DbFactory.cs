@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PecoWeb.Data.Infrastructure
 {
-    class DbFactory : Disposable, IDbFactory
+    public class DbFactory : Disposable, IDbFactory
     {
         PecoWebDbContext dbContext;
         public PecoWebDbContext Init()
