@@ -1,6 +1,9 @@
-﻿using PecoWeb.Model.Models;
+﻿using AutoMapper;
+using PecoWeb.Model.Models;
 using PecoWeb.Service;
 using PecoWeb.Web.Infrastructure.Core;
+using PecoWeb.Web.Infrastructure.Extensions;
+using PecoWeb.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,31 +17,14 @@ namespace PecoWeb.Web.Api
     public class PostCategoryController : ApiControllerBase
     {
         IPostCategoryServce _postCategoryService;
-        public PostCategoryController(IErrorService errorService, IPostCategoryServce postCategoryService):
+        public PostCategoryController(IErrorService errorService, IPostCategoryServce postCategoryService) :
             base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
-        {
-            return CreateHttpResponse(request, () =>
-            {
-                HttpResponseMessage response = null;
-                if(!ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                } else
-                {
-                     _postCategoryService.Add(postCategory);
-                    _postCategoryService.Save();
-                    response = request.CreateResponse(HttpStatusCode.OK);
-                }
-                return response;
-            });
-        }
-
-        public HttpResponseMessage Update(HttpRequestMessage request, PostCategory postCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -49,7 +35,34 @@ namespace PecoWeb.Web.Api
                 }
                 else
                 {
-                    _postCategoryService.Update(postCategory);
+                    PostCategory newPostCategory = new PostCategory();
+                    newPostCategory.UpdatePostCategory(postCategoryVm);
+
+                    _postCategoryService.Add(newPostCategory);
+                    _postCategoryService.Save();
+                    response = request.CreateResponse(HttpStatusCode.OK);
+                }
+                return response;
+            });
+        }
+
+        [Route("Update")]
+        public HttpResponseMessage Put(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+
+                    var postCategoryDb = _postCategoryService.GetById(postCategoryVm.ID);
+                    postCategoryDb.UpdatePostCategory(postCategoryVm);
+
+                    _postCategoryService.Update(postCategoryDb);
                     _postCategoryService.Save();
                     response = request.CreateResponse(HttpStatusCode.OK);
                 }
@@ -81,16 +94,9 @@ namespace PecoWeb.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
-                if (!ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listCategory = _postCategoryService.GetAll();
-                  
-                    response = request.CreateResponse(HttpStatusCode.OK, listCategory);
-                }
+                var listCategory = _postCategoryService.GetAll();
+                var listPostCategoryVm = Mapper.Map<List<PostCategoryViewModel>>(listCategory);
+                response = request.CreateResponse(HttpStatusCode.OK, listPostCategoryVm);
                 return response;
             });
         }
