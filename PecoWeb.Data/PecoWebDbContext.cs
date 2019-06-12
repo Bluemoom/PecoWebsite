@@ -1,4 +1,5 @@
-﻿using PecoWeb.Model.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using PecoWeb.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PecoWeb.Data
 {
-    public class PecoWebDbContext: DbContext
+    public class PecoWebDbContext : IdentityDbContext<ApplicationUser>
     {
         public PecoWebDbContext() : base("name = PecoWebConnection")
         {
@@ -33,8 +34,14 @@ namespace PecoWeb.Data
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
         public DbSet<Error> Errors { get; set; }
 
+        public static PecoWebDbContext Create()
+        {
+            return new PecoWebDbContext();
+        }
         protected override void OnModelCreating(DbModelBuilder builder)
         {
+            builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId , i.RoleId});
+            builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
 
     }
